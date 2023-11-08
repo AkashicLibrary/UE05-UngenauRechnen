@@ -1,4 +1,7 @@
 public class InexactNumber {
+    /*==================================================================
+            from this point on is stuff added for instruction B2
+    ==================================================================*/
     private float x;
     private float dx;
     public InexactNumber(){
@@ -17,16 +20,22 @@ public class InexactNumber {
         this.x=x;
         this.dx=dx;
     }
-    float getX(){
+    public float getX(){
         return this.x;
     }
-    float getDx(){
+    public float getDx(){
         return this.dx;
     }
-    float getMax(){
+    public float getMax(){
         return this.x+this.dx;
     }
-    float getMin(){
+    public float getMin(){
         return this.x-this.dx;
+    }
+    /*==================================================================
+            from this point on is stuff added for instruction B3
+    ==================================================================*/
+    public String toString(){
+        return  this.x+"\u00B1"+this.dx;
     }
 }
