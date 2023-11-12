@@ -17,7 +17,8 @@ public class InexactNumber {
 
     public InexactNumber(double x, double dx) {
         if(dx<0){
-            throw new RuntimeException("dx has to be positive!");
+            //throw new RuntimeException("dx has to be positive!");
+            dx=indexOf(dx);
         }
         this.x=x;
         this.dx=dx;
@@ -42,7 +43,7 @@ public class InexactNumber {
             from this point on is stuff added for instruction B3
     ==================================================================*/
     public String toString(){
-        return  this.x+"\u00B1"+this.dx;
+        return  "("+this.x+"\u00B1"+this.dx+")";
     }
     /*==================================================================
             from this point on is stuff added for instruction B4
@@ -72,5 +73,9 @@ public class InexactNumber {
     /*==================================================================
                        end of instructions from set B
     ==================================================================*/
-
+    /*==================================================================
+            from this point on is stuff added for instruction C1
+    ==================================================================*/
+    public static void main(String[] args) {
+    }
 }
