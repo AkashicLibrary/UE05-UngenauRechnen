@@ -2,20 +2,20 @@ public class InexactNumber {
     /*==================================================================
             from this point on is stuff added for instruction B2
     ==================================================================*/
-    private float x;
-    private float dx;
+    private double x;
+    private double dx;
 
     public InexactNumber(){
         this.x=0;
         this.dx=0;
     }
 
-    public InexactNumber(float x){
+    public InexactNumber(double x){
         this.x=x;
         this.dx=0;
     }
 
-    public InexactNumber(float x, float dx) {
+    public InexactNumber(double x, double dx) {
         if(dx<0){
             throw new RuntimeException("dx has to be positive!");
         }
@@ -23,19 +23,19 @@ public class InexactNumber {
         this.dx=dx;
     }
 
-    public float getX(){
+    public double getX(){
         return this.x;
     }
 
-    public float getDx(){
+    public double getDx(){
         return this.dx;
     }
 
-    public float getMax(){
+    public double getMax(){
         return this.x+this.dx;
     }
 
-    public float getMin(){
+    public double getMin(){
         return this.x-this.dx;
     }
     /*==================================================================
@@ -55,7 +55,7 @@ public class InexactNumber {
         return new InexactNumber(this.x-other.x,this.dx+other.dx);
     }
 
-    public float indexOf(float in){
+    public double indexOf(double in){
         if(in<0){
             return in*-1;
         }
@@ -72,4 +72,5 @@ public class InexactNumber {
     /*==================================================================
                        end of instructions from set B
     ==================================================================*/
+
 }
