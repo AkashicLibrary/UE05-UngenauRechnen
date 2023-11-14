@@ -98,5 +98,47 @@ public class InexactNumber {
         System.out.println(maxGlassRemain+" Liter");
         System.out.println("maximal "+maxGlasses+" Gläser");
         System.out.println(minGlassRemain+" Liter");
+    /*==================================================================
+            from this point on is stuff added for instruction C2
+    ==================================================================*/
+        double errorRoom=0.002;
+
+        //INFO: Yes I used trial and error until I got a number that ended up matching the minimum square meters with .getMax()
+        double neededErrorRoom=0.2803578011725224;
+
+        InexactNumber entrywayWidth=new InexactNumber(1.349,errorRoom);
+        InexactNumber entrywayLength=new InexactNumber(1.808,errorRoom);
+        InexactNumber entrywaySquareM=entrywayWidth.mult(entrywayLength);
+
+        InexactNumber livingRoomWidth=new InexactNumber(4.892,errorRoom);
+        InexactNumber livingRoomLength=new InexactNumber(3.24,errorRoom);
+        InexactNumber livingRoomSquareM=livingRoomWidth.mult(livingRoomLength);
+
+        InexactNumber bedRoomWidth=new InexactNumber(4.185,errorRoom);
+        InexactNumber bedRoomLength=new InexactNumber(3.168,errorRoom);
+        InexactNumber bedRoomSquareM=bedRoomWidth.mult(bedRoomLength);
+
+        InexactNumber kitchenWidth=new InexactNumber(4.395,errorRoom);
+        InexactNumber kitchenLength=new InexactNumber(2.678,errorRoom);
+        InexactNumber kitchenSquareM=kitchenWidth.mult(kitchenLength);
+
+        InexactNumber bathWidth=new InexactNumber(2.124,errorRoom);
+        InexactNumber bathLength=new InexactNumber(2.673,errorRoom);
+        InexactNumber bathSquareM=bathWidth.mult(bathLength);
+
+        InexactNumber houseSquareM=entrywaySquareM.add(livingRoomSquareM.add(bedRoomSquareM.add(kitchenSquareM.add(bathSquareM))));
+        double houseListingPrice=463.9;
+        double houseSquareMPrice=8.061;
+
+        System.out.println(houseSquareM.toString());
+        System.out.println(houseSquareM.getMin());
+        System.out.println(houseSquareM.getMax());
+        System.out.println(houseListingPrice/houseSquareMPrice);
+        System.out.println(houseListingPrice/houseSquareM.getMax());
+        System.out.println(houseSquareM.getMax()*houseSquareMPrice);
+        System.out.println(neededErrorRoom*1000);
     }
+    /*==================================================================
+                       end of instructions from set C
+    ==================================================================*/
 }
