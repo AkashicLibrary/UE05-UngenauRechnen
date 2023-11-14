@@ -76,6 +76,27 @@ public class InexactNumber {
     /*==================================================================
             from this point on is stuff added for instruction C1
     ==================================================================*/
+    public void roundDx(int dezSpaces){
+        double pow10=Math.pow(10, dezSpaces);
+        double out=Math.round(this.dx*pow10);
+        this.dx=out/pow10;
+    }
     public static void main(String[] args) {
+        InexactNumber whiskyGlass = new InexactNumber(0.02, 0.0014);
+        InexactNumber whiskyBottle = new InexactNumber(0.7, 0);
+        InexactNumber glassContainment = whiskyBottle.div(whiskyGlass);
+        glassContainment.roundDx(2);
+        int minGlasses= (int) Math.floor(0.7/ whiskyGlass.getMax());
+        double maxGlassContent=whiskyGlass.getMax()*minGlasses;
+        double maxGlassRemain= (double) (Math.round((0.7 - maxGlassContent) * 10000)) /10000;
+        int maxGlasses= (int) Math.floor(0.7/whiskyGlass.getMin());
+        double minGlassContent=whiskyGlass.getMin()*maxGlasses;
+        double minGlassRemain= (double) (Math.round((0.7 - minGlassContent) * 10000)) /10000;
+        System.out.println(glassContainment.toString());
+        System.out.println(whiskyGlass.toString());
+        System.out.println("mindestens "+minGlasses+" Gläser");
+        System.out.println(maxGlassRemain+" Liter");
+        System.out.println("maximal "+maxGlasses+" Gläser");
+        System.out.println(minGlassRemain+" Liter");
     }
 }
